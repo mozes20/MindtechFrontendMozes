@@ -1,0 +1,31 @@
+<div class="flex flex-row min-h-screen justify-center items-center">
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+        Username
+      </label>
+      <input formControlName="username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" [ngClass]="{'border-red-500': registrationForm.get('username')?.invalid && (registrationForm.get('username')?.touched || registrationError)}" id="username" type="text" placeholder="Username">
+    </div>
+    <div class="mb-6">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+        Password
+      </label>
+      <input formControlName="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" [ngClass]="{'border-red-500': registrationForm.get('password')?.invalid && (registrationForm.get('password')?.touched || registrationError)}" id="password" type="password" placeholder="******************">
+    </div>
+    <div class="mb-6">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="confirmPassword">
+        Confirm Password
+      </label>
+      <input formControlName="confirmPassword" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" [ngClass]="{'border-red-500': registrationForm.get('confirmPassword')?.invalid && (registrationForm.get('confirmPassword')?.touched || registrationError)}" id="confirmPassword" type="password" placeholder="******************">
+      <p *ngIf="registrationForm.errors && registrationForm.get('confirmPassword')?.touched" class="text-red-500 text-xs italic">Passwords do not match.</p>
+    </div>
+    <div class="flex items-center justify-between">
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+        Sign Up
+      </button>
+      <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" routerLink="/login">
+        Login
+      </a>
+    </div>
+  </form>
+</div>
