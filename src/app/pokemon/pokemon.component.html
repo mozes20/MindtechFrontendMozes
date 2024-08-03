@@ -1,0 +1,44 @@
+<button (click)="router.navigate(['/'])">Go To Home</button>
+<div *ngIf="pokemonDetails">
+  <h1>{{ pokemonDetails.name | uppercase }}</h1>
+  <img [src]="pokemonDetails.sprites.front_default" alt="{{ pokemonDetails.name }}" />
+
+  <h2>Basic Information</h2>
+  <p><strong>ID:</strong> {{ pokemonDetails.id }}</p>
+  <p><strong>Base Experience:</strong> {{ pokemonDetails.base_experience }}</p>
+  <p><strong>Height:</strong> {{ pokemonDetails.height }} dm</p>
+  <p><strong>Weight:</strong> {{ pokemonDetails.weight }} hg</p>
+
+  <h2>Abilities</h2>
+  <ul>
+    <li *ngFor="let ability of pokemonDetails.abilities">
+      {{ ability.ability.name }} (Hidden: {{ ability.is_hidden }})
+    </li>
+  </ul>
+
+  <h2>Types</h2>
+  <ul>
+    <li *ngFor="let type of pokemonDetails.types">
+      {{ type.type.name }}
+    </li>
+  </ul>
+
+  <h2>Stats</h2>
+  <ul>
+    <li *ngFor="let stat of pokemonDetails.stats">
+      {{ stat.stat.name }}: {{ stat.base_stat }} (Effort: {{ stat.effort }})
+    </li>
+  </ul>
+
+  <h2>Sprites</h2>
+  <div class="sprites">
+    <img *ngIf="pokemonDetails.sprites.front_default" [src]="pokemonDetails.sprites.front_default" alt="Front Default" />
+    <img *ngIf="pokemonDetails.sprites.back_default" [src]="pokemonDetails.sprites.back_default" alt="Back Default" />
+    <img *ngIf="pokemonDetails.sprites.front_shiny" [src]="pokemonDetails.sprites.front_shiny" alt="Front Shiny" />
+    <img *ngIf="pokemonDetails.sprites.back_shiny" [src]="pokemonDetails.sprites.back_shiny" alt="Back Shiny" />
+    <img *ngIf="pokemonDetails.sprites.front_female" [src]="pokemonDetails.sprites.front_female" alt="Front Female" />
+    <img *ngIf="pokemonDetails.sprites.back_female" [src]="pokemonDetails.sprites.back_female" alt="Back Female" />
+    <img *ngIf="pokemonDetails.sprites.front_shiny_female" [src]="pokemonDetails.sprites.front_shiny_female" alt="Front Shiny Female" />
+    <img *ngIf="pokemonDetails.sprites.back_shiny_female" [src]="pokemonDetails.sprites.back_shiny_female" alt="Back Shiny Female" />
+  </div>
+</div>

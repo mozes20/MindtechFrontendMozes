@@ -6,6 +6,7 @@ import {AuthGuard} from "./AuthGuard";
 export const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', loadComponent: () => import('./home/home.component').then(mod => mod.HomeComponent),canActivate: [AuthGuard]},
+  {path: 'pokemon/:name', loadComponent: () => import('./pokemon/pokemon.component').then(mod => mod.PokemonComponent),canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegistrationComponent},
 ];

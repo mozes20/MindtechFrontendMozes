@@ -2,7 +2,7 @@ import {Component, inject} from '@angular/core';
 import {Router, RouterLink} from "@angular/router";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {ApiService} from "../../api.service";
-import {NgClass, NgIf} from "@angular/common";
+import {NgClass, NgIf, NgOptimizedImage} from "@angular/common";
 import {AuthService} from "../services/auth.service";
 import {LoginDto} from "../../dto/login.dto";
 import {ResponseDto} from "../../dto/response.dto";
@@ -17,7 +17,8 @@ import {ErrorHandlerService} from "../../error-handler.service";
     RouterLink,
     ReactiveFormsModule,
     NgIf,
-    NgClass
+    NgClass,
+    NgOptimizedImage
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
@@ -27,10 +28,11 @@ export class LoginComponent {
   loginError: boolean = false;
   router = inject(Router);
 
+
   constructor(private fb: FormBuilder, private authService: AuthService,private errorHandler:ErrorHandlerService) {
     this.loginForm = this.fb.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
+      username: ['Mozes', Validators.required],
+      password: ['Proba123', Validators.required]
     });
   }
 
