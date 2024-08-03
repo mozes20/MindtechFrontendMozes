@@ -24,4 +24,16 @@ export class PokemonService {
   getPokemonImage(name: string) {
     return this.apiService.get(`pokemon/image/${name}`);
   }
+
+  catchPokemon(name: string) {
+    return this.apiService.post(`pokemon/catch/${name}`, {});
+  }
+
+  releasePokemon(name: string) {
+    return this.apiService.delete(`pokemon/release/${name}`);
+  }
+
+  isPokemonCaught(name: string) {
+    return this.apiService.get(`pokemon/caught/${name}`);
+  }
 }
